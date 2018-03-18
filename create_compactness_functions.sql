@@ -7,7 +7,7 @@ BEGIN
   WHERE srid = ST_SRID(poly1);
 
   IF NOT is_projected THEN
-    RAISE EXCEPTION 'Case lat-long coordinates to geography type before calling this function.';
+    RAISE EXCEPTION 'Cast lat-long coordinates to geography type before calling this function.';
   END IF;
 
   RETURN 4 * pi() * ST_Area(poly1) / (ST_Perimeter(poly1) ^ 2);
